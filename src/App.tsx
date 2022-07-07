@@ -25,7 +25,7 @@ const App: React.FC = (): JSX.Element => {
       <Header />
       <main className='main'>
         <Routes>
-          <Route path='/' element={<AllCats />} />
+          <Route index={false} path='/' element={<AllCats />} />
           <Route path='/favorite' element={<FavoriteCats />} />
         </Routes>
       </main>
