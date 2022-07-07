@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './components/Header';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import AllCats from './pages/AllCats';
 import FavoriteCats from './pages/FavoriteCats';
 import { useAppDispatch } from './redux/hooks';
@@ -8,9 +8,11 @@ import { fetchCats } from './redux/slices/catImages';
 
 const App: React.FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     dispatch(fetchCats());
+    navigate('/');
   }, []);
 
   // React.useEffect(() => {
@@ -25,7 +27,7 @@ const App: React.FC = (): JSX.Element => {
       <Header />
       <main className='main'>
         <Routes>
-          <Route index={false} path='/' element={<AllCats />} />
+          <Route path='/' element={<AllCats />} />
           <Route path='/favorite' element={<FavoriteCats />} />
         </Routes>
       </main>
