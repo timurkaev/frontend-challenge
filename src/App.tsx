@@ -8,11 +8,10 @@ import { fetchCats } from './redux/slices/catImages';
 
 const App: React.FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
-  const [page, setPage] = React.useState(20);
 
   React.useEffect(() => {
-    dispatch(fetchCats(page));
-  }, [page]);
+    dispatch(fetchCats());
+  }, []);
 
   // React.useEffect(() => {
   //   window.addEventListener('scroll', handleScroll);

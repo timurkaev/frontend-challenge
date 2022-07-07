@@ -16,15 +16,12 @@ interface CatsState {
   favorites: Cat[];
 }
 
-export const fetchCats = createAsyncThunk<Cat[], number>(
-  'cats/fetchCats',
-  async (limit: number) => {
-    const response = await axios(
-      `https://api.thecatapi.com/v1/images/search?limit=${limit}&mime_types=jpg,pn&api_key=${API_KEY}`,
-    );
-    return (await response.data) as Cat[];
-  },
-);
+export const fetchCats = createAsyncThunk<Cat[], void>('cats/fetchCats', async () => {
+  const response = await axios(
+    `https://api.thecatapi.com/v1/images/search?limit=20&mime_types=jpg,pn&api_key=${API_KEY}`,
+  );
+  return (await response.data) as Cat[];
+});
 
 const initialState: CatsState = {
   cats: [],

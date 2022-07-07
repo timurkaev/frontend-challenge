@@ -16,8 +16,15 @@ a {
 .main {
   max-width: 1317px;
   margin: 52px auto;
-  display: flex;
-  justify-content: center;
+
+  @media (max-width: 750px) {
+    display: flex;
+    justify-content: center;
+  }
+  @media (max-width: 500px) {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .all__cats {
